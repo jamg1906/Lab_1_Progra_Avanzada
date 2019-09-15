@@ -117,4 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Nota:
+1. Las palabras se toman del archivo .txt llamado "Palabras" encontrado en la carpeta del proyecto.
+
+2. Para que el programa detecte cada palabra, estas deben estar separadas por una coma sin dejar espacios,
+la última palabra que se ingrese también deberá llevar una coma al final.
+
+3. El programa toma en consideración las mayúsculas y los signos, por lo tanto, se recomienda ingresar las
+palabras totalmente en mayúsculas o minúsculas.
+</value>
+  </data>
 </root>

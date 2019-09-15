@@ -1,5 +1,6 @@
 #include "Recursividad.h"
 #include <string>
+#include <cmath>
 using std::string;
 
 Recursividad::Recursividad()
@@ -32,15 +33,21 @@ int Recursividad::Factorial(int n)
 
 int Recursividad::Multiplicacion_Recursiva(int n, int m)
 {
-	if ((m == 0) || (n == 0))
+	try
 	{
-		return 0;
+		if ((m == 0) || (n == 0))
+		{
+			return 0;
+		}
+		else
+		{
+			return n + Multiplicacion_Recursiva(n, m - 1);
+		}
 	}
-	else
+	catch (...)
 	{
-		return n + Multiplicacion_Recursiva(n, m - 1);
+		System::Windows::Forms::MessageBox::Show("Error");
 	}
-
 }
 
 int Recursividad::Multiplicacion_Iterativa(int n, int m)
@@ -53,10 +60,57 @@ int Recursividad::Multiplicacion_Iterativa(int n, int m)
 	return res;
 }
 
-int Recursividad::Base_A_Decimal(int n, System::String^ base)
+int Recursividad::Base_A_Decimal(int n, int base)
 {
-	
+	int num = 0;
+	switch (base)
+	{
+	case 10:
+		num = n;
+		break;	
+	default:
+		System::String ^ numero_vector = System::Convert::ToString(n);
+		int largo = numero_vector->Length;
+		int c = 0;
+		for (int i = largo-1; i >= 0; i--)
+		{
+			num += System::Convert::ToInt32(System::Convert::ToString(numero_vector[i])) * (pow(base, c));
+			c++;
+		}
+		System::Windows::Forms::MessageBox::Show("El número en sistema decimal es " + System::Convert::ToString(num));
+		break;
+	}
+	return num;
+}
 
+int Recursividad::Decimal_A_Base(int n, int base_destino)
+{
+	int sobrante = 0;
+	int seguir = 0; 
+	int original = n;
+	System::String^ res = "";
+	do
+	{
+		n = n / base_destino;
+		sobrante = original - (n * base_destino);
+		original = n;
+		if (n == 0)
+		{
+			res += System::Convert::ToString(sobrante);
+			seguir = 1;
+		}
+		else
+		{
+			res += System::Convert::ToString(sobrante);
+		}
+	} while (seguir == 0);
+	System::String^ resres = "";
+	int largo = res->Length;
+	for (int i = largo - 1; i > -1; i--)
+	{
+		
+	}
+	System::Windows::Forms::MessageBox::Show(res);
 	return 0;
 }
 
